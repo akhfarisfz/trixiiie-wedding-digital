@@ -3,103 +3,255 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undangan Digital Premium</title>
+  <title>Undangan Digital by Trixieee Print</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --dark: #1a1108;
+      --brown: #3d2b1f;
+      --cream: #fdf8f3;
+      --white: #ffffff;
+      --text-muted: #8a7968;
+    }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Georgia', serif;
-      background: #fdf8f3;
-      color: #3a2e2e;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #2c1a1a 0%, #5c3d2e 100%);
-      color: #f5e6d3;
-      text-align: center;
-      padding: 80px 20px;
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(26,17,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,169,110,0.2);
     }
-    .hero h1 {
-      font-size: 2.8rem;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      opacity: 0.8;
-      margin-bottom: 30px;
-    }
-    .hero .badge {
-      display: inline-block;
-      background: #c9a96e;
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--gold);
       letter-spacing: 1px;
     }
+    .nav-logo span { color: #fff; font-style: italic; }
+    .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      padding: 9px 22px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #b8904f; }
 
-    /* FITUR */
-    .features {
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #1a1108 0%, #3d2b1f 60%, #5c3d2e 100%);
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(201,169,110,0.12) 0%, transparent 70%);
+    }
+    .hero-ornament {
+      font-size: 0.78rem;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      margin-bottom: 28px;
+      opacity: 0.85;
+    }
+    .hero p {
+      font-size: clamp(0.92rem, 2vw, 1.08rem);
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      line-height: 1.75;
+      margin-bottom: 42px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      padding: 50px 20px;
-      background: #fff;
     }
-    .feature-item {
-      text-align: center;
-      width: 140px;
+    .btn-main {
+      background: var(--gold);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
     }
-    .feature-item .icon { font-size: 1.8rem; margin-bottom: 8px; }
-    .feature-item p { font-size: 0.82rem; color: #666; line-height: 1.4; }
+    .btn-main:hover { background: #b8904f; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid rgba(201,169,110,0.6);
+      color: var(--gold-light);
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* KATALOG */
-    .catalog {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 60px auto 0;
     }
-    .catalog h2 {
-      text-align: center;
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--dark);
+      padding: 36px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+    }
+    .stat-item { text-align: center; }
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
       font-size: 2rem;
-      margin-bottom: 8px;
-      color: #2c1a1a;
+      color: var(--gold);
+      font-weight: 700;
     }
-    .catalog .subtitle {
+    .stat-item .lbl {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 80px 24px; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      color: var(--dark);
       text-align: center;
-      color: #888;
+      margin-bottom: 10px;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 56px;
+      line-height: 1.6;
+    }
+    .gold-line {
+      width: 50px; height: 2px;
+      background: var(--gold);
+      margin: 14px auto 28px;
+      border-radius: 2px;
+    }
+
+    /* ── THEME TABS ── */
+    .catalog-section {
+      background: var(--white);
+      padding: 80px 24px;
+    }
+    .tab-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-bottom: 48px;
-      font-size: 0.95rem;
+    }
+    .tab-btn {
+      padding: 10px 26px;
+      border-radius: 30px;
+      border: 1.5px solid #ddd;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .tab-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
+    /* Theme panel */
+    .theme-panel { display: none; }
+    .theme-panel.active { display: block; }
 
-    .card {
-      background: #fff;
-      border-radius: 16px;
+    .theme-card {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--cream);
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
     }
 
-    .card-preview {
+    /* Preview pane */
+    .theme-preview {
       position: relative;
-      height: 220px;
       background: #f0e8df;
       overflow: hidden;
     }
-    .card-preview iframe {
+    .theme-preview iframe {
       width: 200%;
       height: 200%;
       transform: scale(0.5);
@@ -107,204 +259,495 @@
       border: none;
       pointer-events: none;
     }
-    .card-preview .overlay {
+    .preview-overlay {
       position: absolute;
       inset: 0;
-      background: transparent;
+      background: linear-gradient(to bottom, transparent 60%, rgba(26,17,8,0.3));
     }
-
-    .card-badge {
+    .badge-popular {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #c9a96e;
+      top: 16px; left: 16px;
+      background: var(--gold);
       color: #fff;
-      font-size: 0.72rem;
-      padding: 4px 10px;
-      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
       letter-spacing: 0.5px;
     }
 
-    .card-body {
-      padding: 24px;
+    /* Info pane */
+    .theme-info {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .card-body h3 {
-      font-size: 1.25rem;
+    .theme-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--dark);
       margin-bottom: 6px;
-      color: #2c1a1a;
     }
-    .card-body .desc {
-      font-size: 0.85rem;
-      color: #888;
-      margin-bottom: 16px;
-      line-height: 1.5;
+    .theme-info .tag-line {
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .theme-info .desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
     }
 
-    .card-actions {
+    /* Feature chips inside card */
+    .feature-chips {
       display: flex;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
     }
-    .btn-preview {
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #fff;
+      border: 1px solid #e8d5b0;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 0.76rem;
+      color: var(--brown);
+      font-weight: 500;
+    }
+    .chip span { font-size: 0.88rem; }
+
+    .theme-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-see {
       flex: 1;
-      padding: 10px;
-      border: 1.5px solid #c9a96e;
+      padding: 12px;
+      border: 1.5px solid var(--gold);
       background: transparent;
-      color: #c9a96e;
-      border-radius: 8px;
+      color: var(--gold);
+      border-radius: 10px;
       font-size: 0.85rem;
-      cursor: pointer;
+      font-weight: 500;
       text-decoration: none;
       text-align: center;
       transition: all 0.2s;
     }
-    .btn-preview:hover {
-      background: #c9a96e;
-      color: #fff;
-    }
-    .btn-order {
+    .btn-see:hover { background: var(--gold); color: #fff; }
+    .btn-wa {
       flex: 1;
-      padding: 10px;
+      padding: 12px;
       background: #25d366;
       color: #fff;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 0.85rem;
-      cursor: pointer;
+      font-weight: 600;
       text-decoration: none;
       text-align: center;
-      transition: background 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 7px;
+      transition: background 0.2s;
     }
-    .btn-order:hover { background: #1ebe5d; }
+    .btn-wa:hover { background: #1ebe5d; }
 
-    /* FOOTER */
-    footer {
+    /* ── COMING SOON CARD ── */
+    .coming-soon {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--cream);
+      border-radius: 24px;
+      border: 2px dashed #ddd;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: var(--text-muted);
+    }
+    .coming-soon .icon { font-size: 2.5rem; }
+    .coming-soon h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+    }
+    .coming-soon p { font-size: 0.85rem; max-width: 280px; text-align: center; line-height: 1.6; }
+
+    /* ── FITUR UNGGULAN ── */
+    .features-section {
+      background: var(--cream);
+      padding: 80px 24px;
+    }
+    .features-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .feat-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 30px 24px;
       text-align: center;
-      padding: 40px 20px;
-      background: #2c1a1a;
-      color: #f5e6d3;
-      font-size: 0.85rem;
-      opacity: 0.9;
+      border: 1px solid #f0e8df;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    footer a { color: #c9a96e; text-decoration: none; }
+    .feat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(201,169,110,0.15);
+    }
+    .feat-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, #fdf0dc, #f5deb3);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 16px;
+    }
+    .feat-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .feat-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
-      .cards { grid-template-columns: 1fr; }
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      background: linear-gradient(160deg, #1a1108 0%, #3d2b1f 100%);
+      padding: 80px 24px;
+    }
+    .how-section .section-title { color: #fff; }
+    .how-section .section-sub { color: rgba(255,255,255,0.5); }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 20px 16px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 30px;
+      color: var(--gold);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step h4 { color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+    .step p { color: rgba(255,255,255,0.45); font-size: 0.78rem; line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 48px 24px 32px;
+      text-align: center;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: #fff; font-style: italic; }
+    footer p {
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-divider {
+      width: 40px; height: 1px;
+      background: rgba(201,169,110,0.3);
+      margin: 20px auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .stats { gap: 30px; padding: 28px 20px; }
+      .theme-card { grid-template-columns: 1fr; }
+      .theme-preview { height: 260px; }
+      .theme-info { padding: 28px 24px; }
+      .step:not(:last-child)::after { display: none; }
+      .theme-actions { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Trixieee <span>Print</span></div>
+  <a href="https://wa.me/6287750798317?text=Halo%2C%20saya%20ingin%20pesan%20undangan%20digital" target="_blank" class="nav-cta">📩 Pesan Sekarang</a>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>✦ Undangan Digital</h1>
-  <p>Bagikan momen spesialmu dengan elegan & mudah</p>
-  <span class="badge">⚡ Pengerjaan &lt; 24 Jam</span>
+  <p class="hero-ornament">✦ &nbsp; Undangan Digital &nbsp; ✦</p>
+  <h1>Bagikan Momen Spesialmu<br>dengan <em>Elegan</em></h1>
+  <p class="hero-brand">by &nbsp;Trixieee Print</p>
+  <p>Undangan digital premium dengan desain cantik, fitur lengkap, dan pengerjaan cepat. Tinggal kirim link — tamu langsung tahu!</p>
+  <div class="hero-btns">
+    <a href="#katalog" class="btn-main">✦ Lihat Katalog Tema</a>
+    <a href="https://wa.me/6287750798317" target="_blank" class="btn-outline">💬 Konsultasi Gratis</a>
+  </div>
+  <div class="hero-divider"></div>
 </section>
 
-<!-- FITUR -->
-<section class="features">
-  <div class="feature-item">
-    <div class="icon">⚡</div>
-    <p>Pengerjaan kurang dari 24 jam</p>
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="num">< 24 Jam</div>
+    <div class="lbl">Waktu Pengerjaan</div>
   </div>
-  <div class="feature-item">
-    <div class="icon">✏️</div>
-    <p>Revisi sepuasnya sampai hari-H</p>
+  <div class="stat-item">
+    <div class="num">∞</div>
+    <div class="lbl">Revisi Sepuasnya</div>
   </div>
-  <div class="feature-item">
-    <div class="icon">👥</div>
-    <p>Nama tamu tak terbatas</p>
+  <div class="stat-item">
+    <div class="num">∞</div>
+    <div class="lbl">Nama Tamu</div>
   </div>
-  <div class="feature-item">
-    <div class="icon">🎵</div>
-    <p>Bebas request musik</p>
+  <div class="stat-item">
+    <div class="num">1 Tahun</div>
+    <div class="lbl">Link Aktif</div>
   </div>
-  <div class="feature-item">
-    <div class="icon">💎</div>
-    <p>Desain premium & berkualitas</p>
-  </div>
-</section>
+</div>
 
-<!-- KATALOG -->
-<section class="catalog">
-  <h2>Pilihan Tema</h2>
-  <p class="subtitle">Klik "Lihat Contoh" untuk preview langsung, lalu pesan via WhatsApp</p>
+<!-- KATALOG / TABS -->
+<section class="catalog-section" id="katalog">
+  <h2 class="section-title">Pilihan <em>Tema</em></h2>
+  <div class="gold-line"></div>
+  <p class="section-sub">Klik tab tema, lihat preview langsung, lalu pesan via WhatsApp ✨</p>
 
-  <div class="cards">
+  <!-- TAB BUTTONS -->
+  <div class="tab-wrapper">
+    <button class="tab-btn active" onclick="switchTab(this, 'bunga')">🌸 Flower – Photo</button>
+    <button class="tab-btn" onclick="switchTab(this, 'simple')">✦ Simple Elegant</button>
+    <button class="tab-btn" onclick="switchTab(this, 'rustic')">🍂 Rustic</button>
+    <button class="tab-btn" onclick="switchTab(this, 'modern')">◈ Modern Minimalist</button>
+  </div>
 
-    <!-- TEMA 1: BUNGA -->
-    <div class="card">
-      <div class="card-preview">
+  <!-- PANEL: BUNGA -->
+  <div class="theme-panel active" id="tab-bunga">
+    <div class="theme-card">
+      <div class="theme-preview">
         <iframe src="https://zainulloh-aini.vercel.app" loading="lazy" scrolling="no" title="Preview Tema Bunga"></iframe>
-        <div class="overlay"></div>
-        <span class="card-badge">✦ Populer</span>
+        <div class="preview-overlay"></div>
+        <span class="badge-popular">✦ Populer</span>
       </div>
-      <div class="card-body">
-        <h3>Tema Bunga</h3>
-        <p class="desc">Elegan dengan sentuhan floral yang romantis. Cocok untuk pasangan yang menyukai kesan natural & hangat.</p>
-        <div class="card-actions">
-          <a class="btn-preview" href="https://zainulloh-aini.vercel.app" target="_blank">👁 Lihat Contoh</a>
-          <a class="btn-order" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Bunga%20%F0%9F%8C�" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-            Pesan
+      <div class="theme-info">
+        <div>
+          <div class="tag-line">🌸 Flower – Photo</div>
+          <h3>Bunga & Foto</h3>
+          <p class="desc">
+            Desain elegan dengan sentuhan floral yang romantis disertai tampilan foto pasangan yang memukau. Cocok untuk kamu yang ingin undangan terasa personal, hangat, dan berkesan.
+          </p>
+          <div class="feature-chips">
+            <div class="chip"><span>📋</span> RSVP Online</div>
+            <div class="chip"><span>⏳</span> Countdown</div>
+            <div class="chip"><span>🗺️</span> Save the Maps</div>
+            <div class="chip"><span>🎁</span> Fitur Gift</div>
+            <div class="chip"><span>🖼️</span> Galeri Foto</div>
+            <div class="chip"><span>🎵</span> Musik Bebas</div>
+            <div class="chip"><span>🖌️</span> Request Desain</div>
+            <div class="chip"><span>💾</span> Bisa Simpan File</div>
+          </div>
+        </div>
+        <div class="theme-actions">
+          <a class="btn-see" href="https://zainulloh-aini.vercel.app" target="_blank">👁 Lihat Preview</a>
+          <a class="btn-wa" href="https://wa.me/6287750798317?text=Halo%20Trixieee%20Print%2C%20saya%20tertarik%20Tema%20Bunga%20%F0%9F%8C%B8" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+            Pesan Tema Ini
           </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- TEMA 2: SIMPLE -->
-    <div class="card">
-      <div class="card-preview">
-        <iframe src="https://ahmadi-warosatin.vercel.app" loading="lazy" scrolling="no" title="Preview Tema Simple"></iframe>
-        <div class="overlay"></div>
-      </div>
-      <div class="card-body">
-        <h3>Tema Simple</h3>
-        <p class="desc">Minimalis dengan nuansa elegan dan bersih. Pilihan tepat untuk pasangan yang menyukai tampilan modern.</p>
-        <div class="card-actions">
-          <a class="btn-preview" href="https://ahmadi-warosatin.vercel.app" target="_blank">👁 Lihat Contoh</a>
-          <a class="btn-order" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Simple%20%E2%9C%A6" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-            Pesan
-          </a>
-        </div>
-      </div>
+  <!-- PANEL: SIMPLE (Coming Soon) -->
+  <div class="theme-panel" id="tab-simple">
+    <div class="coming-soon">
+      <div class="icon">✨</div>
+      <h4>Simple Elegant — Segera Hadir</h4>
+      <p>Tema ini sedang dalam pengerjaan. Hubungi kami untuk jadi yang pertama mendapatkannya!</p>
+      <a class="btn-wa" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Simple%20Elegant" target="_blank" style="margin-top:8px; padding:11px 24px; border-radius:10px; font-size:0.85rem;">
+        💬 Info Lebih Lanjut
+      </a>
     </div>
+  </div>
 
-    <!-- TEMA 3: ELEGANT -->
-    <div class="card">
-      <div class="card-preview">
-        <iframe src="https://wedding-invitation-phi-ashy.vercel.app" loading="lazy" scrolling="no" title="Preview Tema Elegant"></iframe>
-        <div class="overlay"></div>
-      </div>
-      <div class="card-body">
-        <h3>Tema Elegant</h3>
-        <p class="desc">Lengkap dengan love story, galeri, & countdown. Untuk pasangan yang ingin undangan berkesan & bercerita.</p>
-        <div class="card-actions">
-          <a class="btn-preview" href="https://wedding-invitation-phi-ashy.vercel.app" target="_blank">👁 Lihat Contoh</a>
-          <a class="btn-order" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Elegant%20%E2%9C%A6" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-            Pesan
-          </a>
-        </div>
-      </div>
+  <!-- PANEL: RUSTIC (Coming Soon) -->
+  <div class="theme-panel" id="tab-rustic">
+    <div class="coming-soon">
+      <div class="icon">🍂</div>
+      <h4>Rustic — Segera Hadir</h4>
+      <p>Tema hangat bernuansa alam. Nantikan segera atau hubungi kami untuk request lebih awal!</p>
+      <a class="btn-wa" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Rustic" target="_blank" style="margin-top:8px; padding:11px 24px; border-radius:10px; font-size:0.85rem;">
+        💬 Info Lebih Lanjut
+      </a>
     </div>
+  </div>
 
+  <!-- PANEL: MODERN (Coming Soon) -->
+  <div class="theme-panel" id="tab-modern">
+    <div class="coming-soon">
+      <div class="icon">◈</div>
+      <h4>Modern Minimalist — Segera Hadir</h4>
+      <p>Bersih, modern, dan berkelas. Cocok untuk pasangan dengan selera kontemporer.</p>
+      <a class="btn-wa" href="https://wa.me/6287750798317?text=Halo%2C%20saya%20tertarik%20dengan%20Tema%20Modern%20Minimalist" target="_blank" style="margin-top:8px; padding:11px 24px; border-radius:10px; font-size:0.85rem;">
+        💬 Info Lebih Lanjut
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FITUR UNGGULAN -->
+<section class="features-section">
+  <h2 class="section-title">Kenapa Pilih <em>Trixieee Print?</em></h2>
+  <div class="gold-line"></div>
+  <p class="section-sub">Semua yang kamu butuhkan sudah termasuk — tanpa biaya tambahan</p>
+
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon">📋</div>
+      <h4>RSVP Online</h4>
+      <p>Tamu konfirmasi kehadiran langsung dari undangan. Mudah, cepat, tanpa repot.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⏳</div>
+      <h4>Countdown Hari H</h4>
+      <p>Hitung mundur otomatis menuju hari bahagiamu agar tamu makin antusias.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🗺️</div>
+      <h4>Save the Maps</h4>
+      <p>Navigasi ke lokasi akad & resepsi langsung dari undangan — nggak perlu bingung!</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🎁</div>
+      <h4>Fitur Gift / Hadiah</h4>
+      <p>Tamu bisa kirim amplop digital atau hadiah dengan mudah melalui link yang tersedia.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🖼️</div>
+      <h4>Galeri Foto Interaktif</h4>
+      <p>Tampilkan foto-foto terbaik kamu dengan galeri yang bisa dikustomisasi sesuai selera.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🖌️</div>
+      <h4>Request Desain Bebas</h4>
+      <p>Warna, font, layout — semuanya bisa direquest! Desain benar-benar milikmu.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">✏️</div>
+      <h4>Input Data Mudah</h4>
+      <p>Cukup kirim data via WhatsApp, kami yang urus semuanya. Simpel dan anti ribet.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💾</div>
+      <h4>Bisa Simpan File</h4>
+      <p>Tamu bisa simpan undangan ke perangkat sebagai kenangan abadi.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔗</div>
+      <h4>Link Aktif 1 Tahun</h4>
+      <p>Undangan tetap bisa dibuka hingga setahun penuh. Kenangan tersimpan lama.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <h2 class="section-title">Cara <em>Pesan</em></h2>
+  <div class="gold-line"></div>
+  <p class="section-sub">Proses mudah, cepat, dan terpercaya</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Pilih Tema</h4>
+      <p>Pilih tema favoritmu dari katalog dan klik Pesan</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Kirim Data</h4>
+      <p>Kirim foto, nama, tanggal & detail acara via WhatsApp</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Proses & Revisi</h4>
+      <p>Kami kerjakan & kamu bisa revisi sepuasnya</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Link Siap Sebar</h4>
+      <p>Terima link undangan & langsung bagikan ke tamu</p>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Undangan Digital · Dibuat dengan ♥</p>
-  <p style="margin-top: 8px;">
-    <a href="https://wa.me/6287750798317">Hubungi kami via WhatsApp</a>
+  <div class="footer-logo">Trixieee <span>Print</span></div>
+  <div class="footer-divider"></div>
+  <p>
+    Undangan Digital Premium · Pengerjaan &lt; 24 Jam<br/>
+    <a href="https://wa.me/6287750798317">📱 +62 877-5079-8317</a>
   </p>
+  <p style="margin-top: 14px; font-size: 0.72rem; opacity: 0.4;">© 2026 Trixieee Print · Dibuat dengan ♥</p>
 </footer>
+
+<script>
+  function switchTab(btn, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.theme-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+</script>
 
 </body>
 </html>
